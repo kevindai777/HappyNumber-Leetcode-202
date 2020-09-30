@@ -25,3 +25,27 @@ function getNext(number) {
 }
 
 return number == 1
+
+
+//O(1) space solution using Floyd's Tortoise and Hare algorithm
+
+function getNext(n) {
+    let temp = getNext(n)
+    
+    while (n != 1 && temp != n) {
+        n = getNext(n)
+        temp = getNext(getNext(temp))
+    }
+
+    return n == 1
+
+    function getNext(n) {
+        let total = 0
+        while (n > 0) {
+            total += (n % 10) ** 2
+            n = Math.floor(n / 10)
+        }
+        
+        return total
+    }
+}
